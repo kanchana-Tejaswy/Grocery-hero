@@ -7,6 +7,7 @@ const emojiMap = {
 };
 
 let items = [];
+let prevPercentage = null;
 
 const addForm = document.getElementById('add-form');
 const itemInput = document.getElementById('item-input');
@@ -16,6 +17,32 @@ const progressFill = document.getElementById('progress-fill');
 const statsText = document.getElementById('stats-text');
 const percentText = document.getElementById('percent-text');
 const clearBtn = document.getElementById('clear-all');
+
+function triggerConfetti() {
+    const duration = 2 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ['#6366f1', '#ec4899']
+        });
+        confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ['#6366f1', '#ec4899']
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
+}
 
 async function fetchItems() {
     try {
@@ -138,6 +165,11 @@ function render() {
     progressFill.style.width = `${percentage}%`;
     percentText.textContent = `${percentage}%`;
     statsText.textContent = items.length === 0 ? "Start your list!" : `${completedCount} of ${items.length} items bagged`;
+
+    if (prevPercentage !== null && percentage === 100 && prevPercentage < 100 && items.length > 0) {
+        triggerConfetti();
+    }
+    prevPercentage = percentage;
 }
 
 addForm.addEventListener('submit', addItem);
