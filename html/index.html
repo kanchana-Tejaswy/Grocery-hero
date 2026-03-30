@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Hero | Structured</title>
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="p-4 md:p-10 flex flex-col items-center">
+    
+    <div class="w-full max-w-lg">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-extrabold mb-2 gradient-text">Grocery Hero</h1>
+            <p class="text-slate-500 font-medium">Your organized shopping companion ✨</p>
+        </header>
+
+        <div class="glass rounded-3xl shadow-2xl p-6 md:p-8">
+            <div class="mb-8">
+                <div class="flex justify-between items-end mb-2">
+                    <span id="stats-text" class="text-sm font-bold text-slate-600">Loading list...</span>
+                    <span id="percent-text" class="text-xs font-black text-indigo-500 bg-indigo-50 px-2 py-1 rounded-full">0%</span>
+                </div>
+                <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                    <div id="progress-fill" class="progress-bar h-full w-0" style="background: linear-gradient(to right, #6366f1, #ec4899);"></div>
+                </div>
+            </div>
+
+            <form id="add-form" class="relative mb-8 group">
+                <input type="text" id="item-input" required 
+                       placeholder="Add something yummy..." 
+                       class="w-full pl-6 pr-24 py-4 bg-white border-2 border-slate-100 rounded-2xl focus:border-indigo-400 focus:ring-4 focus:ring-indigo-50/50 outline-none transition-all text-lg shadow-sm group-hover:shadow-md">
+                <button type="submit" 
+                        class="absolute right-2 top-2 bottom-2 bg-indigo-600 text-white px-6 rounded-xl font-bold hover:bg-indigo-700 active:scale-95 transition-all shadow-lg shadow-indigo-200">
+                    Add
+                </button>
+            </form>
+
+            <div class="space-y-4 max-h-[50vh] overflow-y-auto pr-2 custom-scrollbar">
+                <ul id="shopping-list" class="space-y-3"></ul>
+                <div id="empty-state" class="hidden flex flex-col items-center justify-center py-10 text-center">
+                    <div class="text-5xl mb-4 text-slate-300">🛒</div>
+                    <p class="text-slate-400 font-medium">Your list is empty.<br>Ready for a grocery run?</p>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+                <button id="clear-all" class="text-sm font-bold text-slate-400 hover:text-rose-500 transition-colors flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    Clear All
+                </button>
+                <div class="text-[10px] uppercase tracking-widest font-black text-slate-300">Vercel Backend Ready</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Logic -->
+    <script src="../js/app.js"></script>
+</body>
+</html>
