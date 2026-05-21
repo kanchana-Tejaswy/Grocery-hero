@@ -17,6 +17,19 @@ const progressFill = document.getElementById('progress-fill');
 const statsText = document.getElementById('stats-text');
 const percentText = document.getElementById('percent-text');
 const clearBtn = document.getElementById('clear-all');
+const offlineBadge = document.getElementById('offline-badge');
+
+function updateOnlineStatus() {
+    if (navigator.onLine) {
+        offlineBadge.classList.add('hidden');
+    } else {
+        offlineBadge.classList.remove('hidden');
+    }
+}
+
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+updateOnlineStatus();
 
 function triggerConfetti() {
     const duration = 2 * 1000;
