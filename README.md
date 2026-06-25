@@ -1,4 +1,4 @@
-# 🛒 Grocery Hero App
+# 🛒 Digitial chitti 
 
 > A modern full-stack grocery list application with real-time database synchronization, smart emoji categorization, and premium glassmorphism UI.
 
@@ -6,7 +6,7 @@
 working link of this project :- https://grocery-hero-five.vercel.app/
 ## 🚀 Project Overview
 
-**Grocery Hero App** is a production-ready shopping list web application designed to deliver a **high-performance and visually modern user experience**.
+**Digital chittiApp** is a production-ready shopping list web application designed to deliver a **high-performance and visually modern user experience**.
 
 The application enables users to manage groceries efficiently using real-time persistence, intelligent item recognition, and visual progress tracking.
 
